@@ -4,6 +4,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import Pokeball from 'material-ui/svg-icons/action/donut-small';
 import Run from 'material-ui/svg-icons/maps/directions-run';
+import Pokecenter from 'material-ui/svg-icons/maps/local-hospital';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import { Link } from 'react-router-dom'
 import backgroundForest from '../static/forest-bg.png';
 
 const backgroundStyle = {
@@ -35,6 +38,12 @@ const actionBlockStyle = {
   flexShrink: '0',
   marginBottom: '100px',
   textAlign: 'center',
+}
+
+const buttonStyle = {
+  position: 'absolute',
+  bottom: '10px',
+  right: '10px',
 }
 
 const POKEMON_MAX_NUMBER = 150;
@@ -70,33 +79,40 @@ class SearchPage extends PureComponent {
   render() {
     console.log(this.state.wildPokemon)
     return (
-      <div style={backgroundStyle}>
-        {this.state.wildPokemon
-          ? <Fragment>
-            <div style={pokemonStyle.wrapper}>
-              <img src={this.state.wildPokemon.sprites.front_shiny} style={pokemonStyle.image} />
-            </div>
-            <Paper style={actionBlockStyle} zDepth={3}>
-              A wild {this.state.wildPokemon.name} appears !
-              <br />
-              <br />
-              <RaisedButton
-                label="Runaway"
-                secondary
-                icon={<Run />}
-                onClick={this.capturePokemon}
-                style={{ marginRight: '10px' }}
-              />
-              <RaisedButton
-                label="Capture it"
-                primary
-                icon={<Pokeball />}
-                onClick={this.capturePokemon}
-              />
-            </Paper>
-          </Fragment>
-          : null}
-      </div>
+      <Fragment>
+        <div style={backgroundStyle}>
+          {this.state.wildPokemon
+            ? <Fragment>
+              <div style={pokemonStyle.wrapper}>
+                <img src={this.state.wildPokemon.sprites.front_shiny} style={pokemonStyle.image} />
+              </div>
+              <Paper style={actionBlockStyle} zDepth={3}>
+                A wild {this.state.wildPokemon.name} appears !
+                <br />
+                <br />
+                <RaisedButton
+                  label="Runaway"
+                  secondary
+                  icon={<Run />}
+                  onClick={this.capturePokemon}
+                  style={{ marginRight: '10px' }}
+                />
+                <RaisedButton
+                  label="Capture it"
+                  primary
+                  icon={<Pokeball />}
+                  onClick={this.capturePokemon}
+                />
+              </Paper>
+            </Fragment>
+            : null}
+        </div>
+        <Link to="/pokecenter">
+          <FloatingActionButton style={buttonStyle}>
+            <Pokecenter />
+          </FloatingActionButton>
+        </Link>
+      </Fragment>
     );
   }
 }
