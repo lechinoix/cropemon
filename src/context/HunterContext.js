@@ -2,7 +2,7 @@ import React from 'react';
 
 const initialState = {
   pokedex: new Set(),
-  name: ''
+  name: 'LeChinoix',
 };
 
 const { Provider, Consumer: HunterConsumer } = React.createContext(initialState);

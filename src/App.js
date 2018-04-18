@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import HuntPage from './pages/HuntPage';
@@ -19,10 +19,12 @@ class App extends Component {
       <HunterProvider>
         <Router>
           <MuiThemeProvider>
+            <Fragment>
               <AppBar title="Pokemons" />
               <Route path="/pokecenter" component={PokeCenter} />
               <Route path="/search" component={HuntPage} />
               <Route exact path="/" component={RedirectToPokecenter} />
+            </Fragment>
           </MuiThemeProvider>
         </Router>
       </HunterProvider>
