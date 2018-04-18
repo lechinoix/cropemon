@@ -1,18 +1,7 @@
 import React, { Fragment } from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { Link } from 'react-router-dom'
-
-const backgroundStyle = {
-  alignItems: 'center',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100vh',
-  justifyContent: 'center',
-  position: 'relative',
-  width: '100vw',
-}
+import Background from './Background';
 
 const buttonStyle = {
   position: 'absolute',
@@ -20,12 +9,19 @@ const buttonStyle = {
   right: '10px',
 }
 
+const contentStyle = {
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  height: '100vh',
+  width: '100vw',
+}
+
 const Page = ({ background, fabLink, fabIcon, children }) => (
   <Fragment>
-    <div style={{
-      ...backgroundStyle,
-      backgroundImage: `url(${background})`,
-    }}>
+    <Background background={background} />
+    <div style={contentStyle}>
       {children}
     </div>
     <Link to={fabLink}>
