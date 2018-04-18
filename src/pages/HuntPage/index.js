@@ -35,18 +35,19 @@ class HuntPage extends PureComponent {
   }
 
   fetchRandomPokemon = () => {
-    const pokemonNumber = Math.round(Math.random() * POKEMON_MAX_NUMBER)
-    request.get(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
+    this.setState({ status: AVAILABLE_STATUS.LOADING, wildPokemon: null });
+    const randomPokemonNumber = Math.round(Math.random() * POKEMON_MAX_NUMBER);
+    request.get(`https://pokeapi.co/api/v2/pokemon/${randomPokemonNumber}`)
       .then(({ body: wildPokemon }) => this.setState({ wildPokemon, status: AVAILABLE_STATUS.HUNTING }))
   }
 
   capturePokemon = () => {
     this.setState({ status: AVAILABLE_STATUS.CAPTURING });
     setTimeout(() => {
-      const isCaptured = Math.random() > 1 - (DIFFICULTY / DIFFICULTY_MAX);
+      const isCaptured = Math.random() > DIFFICULTY / (DIFFICULTY_MAX + 1);
       if (isCaptured) {
         this.setState({ status: AVAILABLE_STATUS.CAPTURED });
-        this.props.capturePokemon(this.state.wildPokemon.id);
+        this.props.hunter.capturePokemon(this.state.wildPokemon.id);
         return;
       }
       this.setState({ status: AVAILABLE_STATUS.ESCAPED });
@@ -59,24 +60,25 @@ class HuntPage extends PureComponent {
         this.state.status === AVAILABLE_STATUS.ESCAPED
         || this.state.status === AVAILABLE_STATUS.CAPTURED
       );
-    console.log(this.props)
-    return (
+
+      return (
       <Page
         background={backgroundForest}
         fabLink="/pokecenter"
         fabIcon={<Pokecenter />}
       >
-        {shouldShowPokemon
-          ? <Fragment>
-            <div style={pokemonStyle.wrapper}>
-              <img src={this.state.wildPokemon.sprites.front_shiny} style={pokemonStyle.image} />
-            </div>
-          </Fragment>
-          : null}
+        <div style={pokemonStyle.wrapper}>
+          {shouldShowPokemon &&
+            <img
+              src={this.state.wildPokemon.sprites.front_shiny}
+              style={pokemonStyle.image}
+            />}
+        </div>
         <ControlPanel
           pokemonName={this.state.wildPokemon && this.state.wildPokemon.name}
           status={this.state.status}
           capturePokemon={this.capturePokemon}
+          goHunting={this.fetchRandomPokemon}
         />
       </Page>
     );
