@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import SearchPage from './pages/SearchPage';
+import HuntPage from './pages/HuntPage';
 import PokeCenter from './pages/PokeCenter';
+import { HunterProvider } from './context/HunterContext';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -11,15 +12,18 @@ import {
 
 const RedirectToPokecenter = () => <Redirect to="/pokecenter"/>;
 
+
 class App extends Component {
   render() {
     return (
       <Router>
         <MuiThemeProvider>
-          <AppBar title="Pokemons" />
-          <Route path="/pokecenter" component={PokeCenter} />
-          <Route path="/search" component={SearchPage} />
-          <Route component={RedirectToPokecenter} />
+          <HunterProvider>
+            <AppBar title="Pokemons" />
+            <Route path="/pokecenter" component={PokeCenter} />
+            <Route path="/search" component={HuntPage} />
+            <Route exact path="/" component={RedirectToPokecenter} />
+          </HunterProvider>
         </MuiThemeProvider>
       </Router>
     );
