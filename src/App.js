@@ -16,16 +16,16 @@ const RedirectToPokecenter = () => <Redirect to="/pokecenter"/>;
 class App extends Component {
   render() {
     return (
-      <Router>
-        <MuiThemeProvider>
-          <HunterProvider>
-            <AppBar title="Pokemons" />
-            <Route path="/pokecenter" component={PokeCenter} />
-            <Route path="/search" component={HuntPage} />
-            <Route exact path="/" component={RedirectToPokecenter} />
-          </HunterProvider>
-        </MuiThemeProvider>
-      </Router>
+      <HunterProvider>
+        <Router>
+          <MuiThemeProvider>
+              <AppBar title="Pokemons" />
+              <Route path="/pokecenter" component={PokeCenter} />
+              <Route path="/search" component={HuntPage} />
+              <Route exact path="/" component={RedirectToPokecenter} />
+          </MuiThemeProvider>
+        </Router>
+      </HunterProvider>
     );
   }
 }
