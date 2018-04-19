@@ -10,12 +10,6 @@ import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import { withHunter } from '../context/HunterContext';
 
-const rankingStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-}
-
 class PokeCenter extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +33,7 @@ class PokeCenter extends Component {
             {this.state.hunters.map((hunter, index) => (
               <ListItem
                 primaryText={`${hunter.name} - ${hunter.pokedex.size} pokemons`}
-                leftAvatar={<Avatar icon={<div style={rankingStyle}>{index + 1}</div>} />}
+                leftAvatar={<Avatar>{index + 1}</Avatar>}
                 key={hunter.name}
               />
             ))}
