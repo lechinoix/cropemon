@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { Fragment, Component } from 'react';
 import Pets from 'material-ui/svg-icons/action/pets';
 import backgroundPokecenter from '../static/pokecenter.jpg';
 import Page from '../components/Page';
