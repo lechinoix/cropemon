@@ -11,7 +11,7 @@ import HuntPage from './pages/HuntPage';
 import PokeCenter from './pages/PokeCenter';
 import { HunterProvider } from './context/HunterContext';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Redirect,
   Route,
   Link,
