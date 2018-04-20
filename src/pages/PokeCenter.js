@@ -11,14 +11,6 @@ import Paper from 'material-ui/Paper';
 import { withHunter } from '../context/HunterContext';
 
 class PokeCenter extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hunters: [this.props.hunter],
-    };
-  }
-
   render() {
     return (
       <Page
@@ -30,13 +22,15 @@ class PokeCenter extends Component {
           <List>
             <Subheader>Hunter Ranking</Subheader>
             <Divider inset={true} />
-            {this.state.hunters.map((hunter, index) => (
-              <ListItem
-                primaryText={`${hunter.name} - ${hunter.pokedex.size} pokemons`}
-                leftAvatar={<Avatar>{index + 1}</Avatar>}
-                key={hunter.name}
-              />
-            ))}
+            {Object.values(this.props.hunter.byName)
+              .sort((a, b) => a.pokedexCount < b.pokedexCount)
+              .map((hunter, index) => (console.log(hunter),
+                <ListItem
+                  primaryText={`${hunter.name} - ${hunter.pokedexCount} pokemons`}
+                  leftAvatar={<Avatar>{index + 1}</Avatar>}
+                  key={hunter.name}
+                />
+              ))}
           </List>
         </Paper>
       </Page>

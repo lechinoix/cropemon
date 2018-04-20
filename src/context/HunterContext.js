@@ -1,8 +1,18 @@
 import React from 'react';
+import uniq from 'lodash/uniq';
+import { database, hunterRef } from '../utils/firebase';
+
+const HUNTERNAME = 'Ondine';
 
 const initialState = {
-  pokedex: new Set(),
-  name: 'LeChinoix',
+  ownName: HUNTERNAME,
+  byName: {
+    [HUNTERNAME]: {
+      pokedex: {},
+      name: HUNTERNAME,
+      pokedexCount: 0,
+    }
+  }
 };
 
 const { Provider, Consumer: HunterConsumer } = React.createContext(initialState);
@@ -11,14 +21,44 @@ class HunterProvider extends React.Component {
   constructor(props) {
     super(props);
 
-    this.capturePokemon = (pokemonId) => this.setState({
-      pokedex: this.state.pokedex.add(pokemonId),
-    })
+    this.capturePokemon = async (pokemonId) => {
+      const hunter = this.state.byName[HUNTERNAME];
+      if (hunter.pokedex.hasOwnProperty(pokemonId)) return;
+
+      await this.setState({
+        byName: {
+          ...this.state.byName,
+          [HUNTERNAME]: {
+            ...hunter,
+            pokedexCount: hunter.pokedexCount + 1,
+            pokedex: {
+              ...hunter.pokedex,
+              [pokemonId]: true,
+            },
+          }
+        }
+      });
+
+      database.ref().update({
+        [`hunter/${HUNTERNAME}`]: this.state.byName[HUNTERNAME],
+      })
+    }
 
     this.state = {
       ...initialState,
       capturePokemon: this.capturePokemon,
     }
+  }
+
+  componentDidMount() {
+    hunterRef.on('value', (snapshot) => {
+      this.setState({
+        byName: {
+          ...this.state.byName,
+          ...snapshot.val(),
+        }
+      });
+    });
   }
 
   render() {
