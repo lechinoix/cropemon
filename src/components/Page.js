@@ -18,9 +18,9 @@ const contentStyle = {
   width: '100vw',
 }
 
-const Page = ({ background, fabLink, fabIcon, children }) => (
+const Page = ({ background, isVideo, fabLink, fabIcon, children }) => (
   <Fragment>
-    <Background background={background} />
+    <Background background={background} isVideo={isVideo} />
     <div style={contentStyle}>
       {children}
     </div>
@@ -31,5 +31,10 @@ const Page = ({ background, fabLink, fabIcon, children }) => (
     </Link>
   </Fragment>
 );
+
+Page.defaultProps = {
+  isVideo: false,
+  background: '',
+}
 
 export default Page;

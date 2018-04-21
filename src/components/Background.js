@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const backgroundStyle = {
   alignItems: 'stretch',
@@ -15,9 +15,34 @@ const backgroundStyle = {
   zIndex: -1,
 }
 
-export default ({ background }) => (
-  <div style={{
-    ...backgroundStyle,
-    backgroundImage: `url(${background})`,
-  }} />
-)
+ class Background extends Component {
+
+  startMedia = () => {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((mediaStream) => {
+        this.video.srcObject = mediaStream;
+        this.video.play();
+      })
+      .catch(error => console.error('getUserMedia() error:', error));
+  }
+
+  componentDidMount() {
+    this.startMedia();
+  }
+
+  render() {
+    return (
+      <div style={{
+        ...backgroundStyle,
+        backgroundImage: `url(${this.props.background})`,
+      }}>
+        {this.props.isVideo &&
+          <video
+            ref={(video) => {this.video = video;}}
+          />}
+      </div>
+    );
+  }
+ }
+
+export default Background;

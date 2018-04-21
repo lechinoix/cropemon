@@ -63,7 +63,7 @@ class HuntPage extends PureComponent {
 
       return (
       <Page
-        background={backgroundForest}
+        isVideo
         fabLink="/pokecenter"
         fabIcon={<Pokecenter />}
       >
