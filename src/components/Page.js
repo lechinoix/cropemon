@@ -19,7 +19,7 @@ const contentStyle = {
   position: 'absolute',
   right: 0,
   top: 0,
-  zIndex: 1,
+  zIndex: 0,
 }
 
 const Page = ({ background, renderBackground, fabLink, fabIcon, children }) => (
