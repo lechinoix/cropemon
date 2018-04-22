@@ -1,8 +1,7 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import Pets from 'material-ui/svg-icons/action/pets';
 import backgroundPokecenter from '../static/pokecenter.jpg';
 import Page from '../components/Page';
-import LinearProgress from 'material-ui/LinearProgress';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
@@ -24,7 +23,7 @@ class PokeCenter extends Component {
             <Divider inset={true} />
             {Object.values(this.props.hunter.byName)
               .sort((a, b) => a.pokedexCount < b.pokedexCount)
-              .map((hunter, index) => (console.log(hunter),
+              .map((hunter, index) => (
                 <ListItem
                   primaryText={`${hunter.name} - ${hunter.pokedexCount} pokemons`}
                   leftAvatar={<Avatar>{index + 1}</Avatar>}

@@ -1,5 +1,4 @@
 import React from 'react';
-import uniq from 'lodash/uniq';
 import { database, hunterRef } from '../utils/firebase';
 
 const HUNTERNAME = 'Ondine';

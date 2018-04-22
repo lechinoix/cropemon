@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import request from 'superagent';
 import Pokecenter from 'material-ui/svg-icons/maps/local-hospital';
 import backgroundForest from '../../static/forest-bg.png';
@@ -70,6 +70,7 @@ class HuntPage extends PureComponent {
         <div style={pokemonStyle.wrapper}>
           {shouldShowPokemon &&
             <img
+              alt="In the forest..."
               src={this.state.wildPokemon.sprites.front_shiny}
               style={pokemonStyle.image}
             />}
