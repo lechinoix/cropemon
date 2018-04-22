@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import request from 'superagent';
 import Pokecenter from 'material-ui/svg-icons/maps/local-hospital';
-import backgroundForest from '../../static/forest-bg.png';
 import Page from '../../components/Page';
 import { withHunter } from '../../context/HunterContext';
 import ControlPanel from './components/ControlPanel';

@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import Page from '../components/Page';
 import Pokecenter from 'material-ui/svg-icons/maps/local-hospital';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps"
