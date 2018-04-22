@@ -31,7 +31,7 @@ class Menu extends Component {
         <Link to="/pokecenter">
           <MenuItem leftIcon={<Pokecenter />}>Pokecenter</MenuItem>
         </Link>
-        <Link to="/map">
+        <Link to="/pokemap">
           <MenuItem leftIcon={<Map />}>Map</MenuItem>
         </Link>
 
