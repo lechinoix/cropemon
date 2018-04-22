@@ -7,6 +7,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:local": "PUBLIC_URL=/ yarn run build",
+    "serve:local": "serve -s build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -22,6 +23,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "recompose": "^0.27.0",
+    "serve": "^6.5.5",
     "superagent": "^3.8.2"
   },
   "devDependencies": {

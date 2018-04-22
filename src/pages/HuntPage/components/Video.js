@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Video extends Component {
   startMedia = () => {
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
       .then((mediaStream) => {
         this.video.srcObject = mediaStream;
         this.video.play();
