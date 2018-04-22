@@ -5,6 +5,7 @@ import backgroundForest from '../../static/forest-bg.png';
 import Page from '../../components/Page';
 import { withHunter } from '../../context/HunterContext';
 import ControlPanel from './components/ControlPanel';
+import Video from './components/Video';
 import {
   AVAILABLE_STATUS,
   CAPTURE_TIME,
@@ -63,7 +64,7 @@ class HuntPage extends PureComponent {
 
       return (
       <Page
-        isVideo
+        renderBackground={() => <Video />}
         fabLink="/pokecenter"
         fabIcon={<Pokecenter />}
       >

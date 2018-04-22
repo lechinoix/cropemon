@@ -11,16 +11,20 @@ const buttonStyle = {
 
 const contentStyle = {
   alignItems: 'center',
+  bottom: 0,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  height: '100vh',
-  width: '100vw',
+  left: 0,
+  position: 'absolute',
+  right: 0,
+  top: 0,
+  zIndex: 1,
 }
 
-const Page = ({ background, isVideo, fabLink, fabIcon, children }) => (
+const Page = ({ background, renderBackground, fabLink, fabIcon, children }) => (
   <Fragment>
-    <Background background={background} isVideo={isVideo} />
+    <Background background={background} renderBackground={renderBackground} />
     <div style={contentStyle}>
       {children}
     </div>

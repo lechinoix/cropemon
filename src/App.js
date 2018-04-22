@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import HuntPage from './pages/HuntPage';
 import PokeCenter from './pages/PokeCenter';
+import Map from './pages/Map';
 import { HunterProvider } from './context/HunterContext';
 import {
   HashRouter as Router,
@@ -41,6 +42,7 @@ class App extends Component {
               />
               <Route path="/pokecenter" component={PokeCenter} />
               <Route path="/search" component={HuntPage} />
+              <Route path="/map" component={Map} />
               <Route exact path="/" component={RedirectToPokecenter} />
             </Fragment>
           </MuiThemeProvider>
