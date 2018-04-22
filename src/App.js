@@ -11,8 +11,17 @@ import {
   Route,
 } from 'react-router-dom'
 import Menu from './components/Menu';
+import { getMuiTheme } from 'material-ui/styles';
 
 const RedirectToPokecenter = () => <Redirect to="/pokecenter"/>;
+
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: '#F44336',
+    primary2Color: '#D32F2F',
+    accent1Color: '#9E9E9E',
+  },
+})
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +38,7 @@ class App extends Component {
     return (
       <HunterProvider>
         <Router>
-          <MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
             <Fragment>
               <AppBar
                 onLeftIconButtonClick={this.toggleMenu}
