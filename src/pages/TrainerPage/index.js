@@ -4,6 +4,7 @@ import Pokecenter from 'material-ui/svg-icons/maps/local-hospital';
 import Page from '../../components/Page';
 import { withTrainer } from '../../context/TrainerContext';
 import ControlPanel from './components/ControlPanel';
+import backgroundForest from '../../static/forest-bg.png'
 import Video from './components/Video';
 import { AVAILABLE_STATUS } from './constants';
 import { CAPTURE_TIME,
@@ -62,7 +63,7 @@ class TrainerPage extends PureComponent {
 
       return (
       <Page
-        renderBackground={() => <Video />}
+        backgroundUrl={backgroundForest}
         fabLink="/pokecenter"
         fabIcon={<Pokecenter />}
       >
