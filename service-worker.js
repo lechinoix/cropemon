@@ -13,9 +13,23 @@ self.addEventListener('install', function(event) {
 // Go to the network then serve with the cache as fallback
 
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request);
-    })
-  );
+  var staticUrl = '/static/';
+  if (event.request.url.indexOf(staticUrl) > -1) {
+    event.respondWith(
+      caches.open('pokemon-dynamic').then(function(cache) {
+        return cache.match(event.request).then(function (response) {
+          return response || fetch(event.request).then(function(response) {
+              cache.put(event.request, response.clone());
+              return response;
+            });
+        });
+      })
+    );
+  } else {
+    event.respondWith(
+      fetch(event.request).catch(function() {
+        return caches.match(event.request);
+      })
+    );
+  }
 });
