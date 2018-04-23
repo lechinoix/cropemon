@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import HuntPage from './pages/HuntPage';
+import TrainerPage from './pages/TrainerPage';
 import PokeCenter from './pages/PokeCenter';
 import PokeMap from './pages/PokeMap';
-import { HunterProvider } from './context/HunterContext';
+import { TrainerProvider } from './context/TrainerContext';
 import {
   HashRouter as Router,
   Redirect,
@@ -36,7 +36,7 @@ class App extends Component {
 
   render() {
     return (
-      <HunterProvider>
+      <TrainerProvider>
         <Router>
           <MuiThemeProvider muiTheme={muiTheme}>
             <Fragment>
@@ -50,13 +50,13 @@ class App extends Component {
                 isMenuOpen={this.state.isMenuOpen}
               />
               <Route path="/pokecenter" component={PokeCenter} />
-              <Route path="/search" component={HuntPage} />
+              <Route path="/search" component={TrainerPage} />
               <Route path="/pokemap" component={PokeMap} />
               <Route exact path="/" component={RedirectToPokecenter} />
             </Fragment>
           </MuiThemeProvider>
         </Router>
-      </HunterProvider>
+      </TrainerProvider>
     );
   }
 }

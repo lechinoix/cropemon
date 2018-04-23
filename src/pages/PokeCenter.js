@@ -7,7 +7,7 @@ import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
-import { withHunter } from '../context/HunterContext';
+import { withTrainer } from '../context/TrainerContext';
 
 class PokeCenter extends Component {
   render() {
@@ -19,15 +19,15 @@ class PokeCenter extends Component {
       >
         <Paper zDepth={3}>
           <List style={{ maxHeight: '60vh', overflowY: 'scroll' }}>
-            <Subheader>Hunter Ranking</Subheader>
+            <Subheader>Trainer Ranking</Subheader>
             <Divider inset={true} />
-            {Object.values(this.props.hunters.byName)
+            {Object.values(this.props.trainers.byName)
               .sort((a, b) => a.pokedexCount < b.pokedexCount)
-              .map((hunter, index) => (
+              .map((trainer, index) => (
                 <ListItem
-                  primaryText={`${hunter.name} - ${hunter.pokedexCount} pokemons`}
+                  primaryText={`${trainer.name} - ${trainer.pokedexCount} pokemons`}
                   leftAvatar={<Avatar>{index + 1}</Avatar>}
-                  key={hunter.name}
+                  key={trainer.name}
                 />
               ))}
           </List>
@@ -37,4 +37,4 @@ class PokeCenter extends Component {
   }
 }
 
-export default withHunter(PokeCenter);
+export default withTrainer(PokeCenter);

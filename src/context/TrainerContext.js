@@ -1,21 +1,21 @@
 import React from 'react';
-import { database, hunterRef } from '../utils/firebase';
-import { HUNTERNAME } from '../constants';
+import { database, trainerRef } from '../utils/firebase';
+import { TRAINERNAME } from '../constants';
 
 const initialState = {
-  ownName: HUNTERNAME,
+  ownName: TRAINERNAME,
   byName: {
-    [HUNTERNAME]: {
+    [TRAINERNAME]: {
       pokedex: {},
-      name: HUNTERNAME,
+      name: TRAINERNAME,
       pokedexCount: 0,
     }
   }
 };
 
-const { Provider, Consumer: HunterConsumer } = React.createContext(initialState);
+const { Provider, Consumer: TrainerConsumer } = React.createContext(initialState);
 
-class HunterProvider extends React.Component {
+class TrainerProvider extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,15 +23,15 @@ class HunterProvider extends React.Component {
      * Update Firebase database when capturing a new Pokemon
      */
     this.capturePokemon = (pokemonNumber) => {
-      const hunter = this.state.byName[HUNTERNAME];
-      if (hunter.pokedex.hasOwnProperty(pokemonNumber)) return;
+      const trainer = this.state.byName[TRAINERNAME];
+      if (trainer.pokedex.hasOwnProperty(pokemonNumber)) return;
 
       database.ref().update({
-        [`hunter/${HUNTERNAME}`]: {
-          ...hunter,
-          pokedexCount: hunter.pokedexCount + 1,
+        [`trainer/${TRAINERNAME}`]: {
+          ...trainer,
+          pokedexCount: trainer.pokedexCount + 1,
           pokedex: {
-            ...hunter.pokedex,
+            ...trainer.pokedex,
             [pokemonNumber]: true,
           },
         },
@@ -48,7 +48,7 @@ class HunterProvider extends React.Component {
    * Listen to changes in Firebase database
    */
   componentDidMount() {
-    hunterRef.on('value', (snapshot) => {
+    trainerRef.on('value', (snapshot) => {
       this.setState({
         byName: {
           ...this.state.byName,
@@ -67,15 +67,15 @@ class HunterProvider extends React.Component {
   }
 }
 
-const withHunter = (WrappedComponent) => (props) => (
-  <HunterConsumer>
-    {hunter => <WrappedComponent hunters={hunter} {...props} />}
-  </HunterConsumer>
+const withTrainer = (WrappedComponent) => (props) => (
+  <TrainerConsumer>
+    {trainer => <WrappedComponent trainers={trainer} {...props} />}
+  </TrainerConsumer>
 )
 
 export {
-  HunterConsumer,
-  HunterProvider,
-  withHunter,
+  TrainerConsumer,
+  TrainerProvider,
+  withTrainer,
 }
 

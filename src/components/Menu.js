@@ -26,7 +26,7 @@ class Menu extends Component {
       >
         <Subheader>Navigation</Subheader>
         <Link to="/search">
-          <MenuItem leftIcon={<Pets />}>Go hunting</MenuItem>
+          <MenuItem leftIcon={<Pets />}>Go searching</MenuItem>
         </Link>
         <Link to="/pokecenter">
           <MenuItem leftIcon={<Pokecenter />}>Pokecenter</MenuItem>

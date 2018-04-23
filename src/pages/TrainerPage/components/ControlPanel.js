@@ -21,7 +21,7 @@ class ControlPanel extends Component {
     if (this.props.status === AVAILABLE_STATUS.CAPTURED) return this.renderCaptured();
     if (this.props.status === AVAILABLE_STATUS.CAPTURING) return this.renderCapturing();
     if (this.props.status === AVAILABLE_STATUS.ESCAPED) return this.renderEscaped();
-    return this.renderIsHunting();
+    return this.renderIsSearching();
   }
 
   renderLoading = () => (
@@ -46,10 +46,10 @@ class ControlPanel extends Component {
         />
       </Link>
       <RaisedButton
-        label="Keep hunting"
+        label="Keep searching"
         primary
         icon={<Pets />}
-        onClick={this.props.goHunting}
+        onClick={this.props.goSearching}
       />
     </div>
   )
@@ -68,15 +68,15 @@ class ControlPanel extends Component {
         />
       </Link>
       <RaisedButton
-        label="Keep hunting"
+        label="Keep searching"
         primary
         icon={<Pets />}
-        onClick={this.props.goHunting}
+        onClick={this.props.goSearching}
       />
     </div>
   )
 
-  renderIsHunting = () => (
+  renderIsSearching = () => (
     <Fragment>
       A wild {this.props.pokemonName} appears !
       <br />

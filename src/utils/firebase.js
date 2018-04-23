@@ -12,6 +12,6 @@ var config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
-const hunterRef = database.ref('hunter');
+const trainerRef = database.ref('trainer');
 
-export { hunterRef, database };
+export { trainerRef, database };

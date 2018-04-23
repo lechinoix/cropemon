@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import request from 'superagent';
 import Pokecenter from 'material-ui/svg-icons/maps/local-hospital';
 import Page from '../../components/Page';
-import { withHunter } from '../../context/HunterContext';
+import { withTrainer } from '../../context/TrainerContext';
 import ControlPanel from './components/ControlPanel';
 import Video from './components/Video';
 import { AVAILABLE_STATUS } from './constants';
@@ -23,7 +23,7 @@ const pokemonStyle = {
   },
 }
 
-class HuntPage extends PureComponent {
+class TrainerPage extends PureComponent {
   state = {
     wildPokemon: null,
     status: AVAILABLE_STATUS.LOADING,
@@ -37,7 +37,7 @@ class HuntPage extends PureComponent {
     this.setState({ status: AVAILABLE_STATUS.LOADING, wildPokemon: null });
     const randomPokemonNumber = Math.round(Math.random() * POKEMON_MAX_NUMBER);
     request.get(`https://pokeapi.co/api/v2/pokemon/${randomPokemonNumber}`)
-      .then(({ body: wildPokemon }) => this.setState({ wildPokemon, status: AVAILABLE_STATUS.HUNTING }))
+      .then(({ body: wildPokemon }) => this.setState({ wildPokemon, status: AVAILABLE_STATUS.SEARCHING }))
   }
 
   capturePokemon = () => {
@@ -46,8 +46,7 @@ class HuntPage extends PureComponent {
       const isCaptured = Math.random() > DIFFICULTY / (DIFFICULTY_MAX + 1);
       if (isCaptured) {
         this.setState({ status: AVAILABLE_STATUS.CAPTURED });
-        debugger
-        this.props.hunters.capturePokemon(this.state.wildPokemon.id);
+        this.props.trainers.capturePokemon(this.state.wildPokemon.id);
         return;
       }
       this.setState({ status: AVAILABLE_STATUS.ESCAPED });
@@ -79,11 +78,11 @@ class HuntPage extends PureComponent {
           pokemonName={this.state.wildPokemon && this.state.wildPokemon.name}
           status={this.state.status}
           capturePokemon={this.capturePokemon}
-          goHunting={this.fetchRandomPokemon}
+          goSearching={this.fetchRandomPokemon}
         />
       </Page>
     );
   }
 }
 
-export default withHunter(HuntPage);
+export default withTrainer(TrainerPage);

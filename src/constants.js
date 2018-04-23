@@ -1,7 +1,7 @@
 /**
  * The name you will take in Firebase
  */
-export const HUNTERNAME = 'Ondine';
+export const TRAINERNAME = 'Ondine';
 
 /**
  * Some game parameter
