@@ -22,9 +22,9 @@ const contentStyle = {
   zIndex: 0,
 }
 
-const Page = ({ background, renderBackground, fabLink, fabIcon, children }) => (
+const Page = ({ backgroundUrl, renderBackground, fabLink, fabIcon, children }) => (
   <Fragment>
-    <Background background={background} renderBackground={renderBackground} />
+    <Background backgroundUrl={backgroundUrl} renderBackground={renderBackground} />
     <div style={contentStyle}>
       {children}
     </div>

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const backgroundStyle = {
   alignItems: 'stretch',
@@ -15,18 +16,18 @@ const backgroundStyle = {
   zIndex: -1,
 }
 
- class Background extends Component {
+const Background = (props) => (
+  <div style={{
+    ...backgroundStyle,
+    backgroundImage: `url(${props.backgroundUrl})`,
+  }}>
+    {props.renderBackground && props.renderBackground()}
+  </div>
+);
 
-  render() {
-    return (
-      <div style={{
-        ...backgroundStyle,
-        backgroundImage: `url(${this.props.background})`,
-      }}>
-        {this.props.renderBackground && this.props.renderBackground()}
-      </div>
-    );
-  }
+ Background.propTypes = {
+   renderBackground: PropTypes.func,
+   backgroundUrl: PropTypes.string,
  }
 
 export default Background;
