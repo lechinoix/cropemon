@@ -22,9 +22,9 @@ class HunterProvider extends React.Component {
     /**
      * Update Firebase database when capturing a new Pokemon
      */
-    this.capturePokemon = (pokemonId) => {
+    this.capturePokemon = (pokemonNumber) => {
       const hunter = this.state.byName[HUNTERNAME];
-      if (hunter.pokedex.hasOwnProperty(pokemonId)) return;
+      if (hunter.pokedex.hasOwnProperty(pokemonNumber)) return;
 
       database.ref().update({
         [`hunter/${HUNTERNAME}`]: {
@@ -32,7 +32,7 @@ class HunterProvider extends React.Component {
           pokedexCount: hunter.pokedexCount + 1,
           pokedex: {
             ...hunter.pokedex,
-            [pokemonId]: true,
+            [pokemonNumber]: true,
           },
         },
       })
