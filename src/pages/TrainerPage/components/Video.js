@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Video extends Component {
   render() {
     return (
-      <div>This will be the video</div>
+      <h1 style={{ alignSelf: 'center' }}>This will be the video</h1>
     );
   }
  }
