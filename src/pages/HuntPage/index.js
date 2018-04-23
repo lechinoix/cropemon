@@ -5,13 +5,12 @@ import Page from '../../components/Page';
 import { withHunter } from '../../context/HunterContext';
 import ControlPanel from './components/ControlPanel';
 import Video from './components/Video';
-import {
-  AVAILABLE_STATUS,
-  CAPTURE_TIME,
+import { AVAILABLE_STATUS } from './constants';
+import { CAPTURE_TIME,
   DIFFICULTY,
   DIFFICULTY_MAX,
   POKEMON_MAX_NUMBER,
-} from './constants';
+} from '../../constants';
 
 const pokemonStyle = {
   wrapper: {
@@ -47,7 +46,8 @@ class HuntPage extends PureComponent {
       const isCaptured = Math.random() > DIFFICULTY / (DIFFICULTY_MAX + 1);
       if (isCaptured) {
         this.setState({ status: AVAILABLE_STATUS.CAPTURED });
-        this.props.hunter.capturePokemon(this.state.wildPokemon.id);
+        debugger
+        this.props.hunters.capturePokemon(this.state.wildPokemon.id);
         return;
       }
       this.setState({ status: AVAILABLE_STATUS.ESCAPED });

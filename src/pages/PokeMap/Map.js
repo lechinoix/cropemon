@@ -4,8 +4,9 @@ import { compose, withProps } from "recompose"
 import mapStyle from './mapStyle.json';
 
 const containerStyle = {
-  height: '100vh',
-  width: '100vw',
+  bottom: 0,
+  left: 0,
+  right: 0,
   position: 'absolute',
   top: 0,
 }

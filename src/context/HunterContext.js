@@ -1,7 +1,6 @@
 import React from 'react';
 import { database, hunterRef } from '../utils/firebase';
-
-const HUNTERNAME = 'Ondine';
+import { HUNTERNAME } from '../constants';
 
 const initialState = {
   ownName: HUNTERNAME,
@@ -20,26 +19,22 @@ class HunterProvider extends React.Component {
   constructor(props) {
     super(props);
 
-    this.capturePokemon = async (pokemonId) => {
+    /**
+     * Update Firebase database when capturing a new Pokemon
+     */
+    this.capturePokemon = (pokemonId) => {
       const hunter = this.state.byName[HUNTERNAME];
       if (hunter.pokedex.hasOwnProperty(pokemonId)) return;
 
-      await this.setState({
-        byName: {
-          ...this.state.byName,
-          [HUNTERNAME]: {
-            ...hunter,
-            pokedexCount: hunter.pokedexCount + 1,
-            pokedex: {
-              ...hunter.pokedex,
-              [pokemonId]: true,
-            },
-          }
-        }
-      });
-
       database.ref().update({
-        [`hunter/${HUNTERNAME}`]: this.state.byName[HUNTERNAME],
+        [`hunter/${HUNTERNAME}`]: {
+          ...hunter,
+          pokedexCount: hunter.pokedexCount + 1,
+          pokedex: {
+            ...hunter.pokedex,
+            [pokemonId]: true,
+          },
+        },
       })
     }
 
@@ -49,6 +44,9 @@ class HunterProvider extends React.Component {
     }
   }
 
+  /**
+   * Listen to changes in Firebase database
+   */
   componentDidMount() {
     hunterRef.on('value', (snapshot) => {
       this.setState({
@@ -71,7 +69,7 @@ class HunterProvider extends React.Component {
 
 const withHunter = (WrappedComponent) => (props) => (
   <HunterConsumer>
-    {hunter => <WrappedComponent hunter={hunter} {...props} />}
+    {hunter => <WrappedComponent hunters={hunter} {...props} />}
   </HunterConsumer>
 )
 

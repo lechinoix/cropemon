@@ -21,7 +21,7 @@ class PokeCenter extends Component {
           <List>
             <Subheader>Hunter Ranking</Subheader>
             <Divider inset={true} />
-            {Object.values(this.props.hunter.byName)
+            {Object.values(this.props.hunters.byName)
               .sort((a, b) => a.pokedexCount < b.pokedexCount)
               .map((hunter, index) => (
                 <ListItem
