@@ -13,12 +13,12 @@ class PokeCenter extends Component {
   render() {
     return (
       <Page
-        background={backgroundPokecenter}
+        backgroundUrl={backgroundPokecenter}
         fabLink="/search"
         fabIcon={<Pets />}
       >
         <Paper zDepth={3}>
-          <List>
+          <List style={{ maxHeight: '60vh', overflowY: 'scroll' }}>
             <Subheader>Hunter Ranking</Subheader>
             <Divider inset={true} />
             {Object.values(this.props.hunters.byName)
