@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps"
 import { compose, withProps } from "recompose"
 import mapStyle from './mapStyle.json';
+import { MAPS_API_KEY } from '../../constants';
 
 const containerStyle = {
   bottom: 0,
@@ -10,8 +11,6 @@ const containerStyle = {
   position: 'absolute',
   top: 0,
 }
-
-const MAPS_API_KEY = 'AIzaSyCFs36lo5GXQkDPVecvhqOxzIXV3U9kEcw';
 
 const enhanceComponent = compose(
   withProps({
