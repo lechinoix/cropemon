@@ -8,8 +8,6 @@ const containerStyle = {
   top: 0,
 }
 
-const MAPS_API_KEY = 'AIzaSyCFs36lo5GXQkDPVecvhqOxzIXV3U9kEcw';
-
 const Map = (props) => (
   <h1>This will be the map</h1>
 )
