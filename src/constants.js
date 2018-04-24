@@ -16,6 +16,7 @@ export const CAPTURE_TIME = 1000;
  */
 
 export const PUSH_SENDER_ID = '330356060993';
+export const PUSH_SERVER_KEY = 'AAAATOrBc0E:APA91bFA2XjuromJ-cih5SNFzZ_UOnbaXDu-1MZ3oKiEl_DZKE-eiaTnTE5Ed7Dc7_RvX6l_h4azXaTQEMoe1A6BTiVLj_1-44_g03ss9aUVtGWKptHGrEinTm5bsQ2uUnd-eMVhbX4o';
 
 /**
  * Google Maps API key

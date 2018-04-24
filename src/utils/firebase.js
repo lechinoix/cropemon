@@ -1,4 +1,5 @@
 import * as firebase from "firebase";
+import { PUSH_SENDER_ID } from '../constants';
 
 // Initialize Firebase
 var config = {
@@ -7,7 +8,7 @@ var config = {
   databaseURL: "https://pokemon-pwa.firebaseio.com",
   projectId: "pokemon-pwa",
   storageBucket: "",
-  messagingSenderId: "330356060993"
+  messagingSenderId: PUSH_SENDER_ID,
 };
 firebase.initializeApp(config);
 

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pokemon-pwa",
+  "private_key_id": "b564ef5e36a6ca4ec7483bbaa6aa8791271b70c7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCTEn9YyxcjBWb9\njU7rAWqHFzyviC92ST1seLcgGIqWWR7kcdWO37BTkSeRu8rfuTpKeQ7xTePMzB3q\nR5Oocf1yMwmirUUz+WE97dXMbH/q5it+ygUfMdVt0EfsSRs0jBZt228NES1/qORq\nrNS3FZeiN1AYDcKnVWUmqsQ9mQCMBJd2AoDS1s2OMEq6GddeRPlIbJRAGavwHlKb\nnP+bqR5ZFFvuFZqvEql0QmSV3DfVTQA8Ss9Q+qdjQVykUb031HOd9CeDG69Afa9F\nktbvXFRQujd2Tus5BEXdgS6d27lnXiTKHTi3yWb6tTwoP8MTEKZGKatIaqV7Q7Nb\nLGLtkWntAgMBAAECggEACd9iAQ87sbQjzRLL9hFARL/rPkqWtQqxlDMo8n9Ik6h5\nNGiX0gweBV4Rw+ymmmIQEakStwwS0KVFv3un49TTE0ltyifLeh5cHWYhG086lFrN\nwf3EXkBgIrZVPaf4ADevLGy12wYI1zBP36v+aNPgO+7D8k6/fwVyfCgBHbQZn0x4\nLuP2e4CaqYi3+eNLzMaYuZFZstfTBP80Su0FTd94P9rNnj+KNgaq7vN5Q9UkqVzi\nWA7F2GUa7Os1auhYj98wwsY6TZCOzHKHc+y54nfeek0TV6ktpE2zkD7zz/oyAmJI\nKX3YfZnsZCTpDAIRHuAUkUWB5yW1tBLAS4db6Aq1GQKBgQDNNlMm7gzcwZKJhxQf\nuplDWGClS9NkAU6/UKHnMR/z3r81BqdVHzZgASKb8XuLXj6bCg3eUv/e2BUPuUXM\n27UsP9ZOtKn29RDrSvmtP0mAHYAGIlsWo7EMDEO70O3Ji5cqJO9jU1E0ac2ToSUV\nWElCrbSN6C9Za9TvXTguUxtYlwKBgQC3eJY/0Q6igWRyLg9vF0DJDa5AGXd6vmIa\nF/fcswj79vRaejKedrW1eUTHyktO8VJhB3/7jbuWzwP5Y2/65iouiqwAixZDCkpc\nfVKlmmb00NVjcgavmq2VkVETHqrdAoPpZSs8RFL+p/NEE3kJdfdoyvZscDLKYqha\nVx9CuGm+GwKBgDBotEzmsxoQf+T5fIHPnwAIBSR5MrDQribreoXzTLpWvXxgyXCH\nIGidW/C1kpNZ9CLWyFa99aY4Cx/ecNzWp3J8zK1caQvc29Tlpuh7mXcjfmP0DtDU\nZJuW+ROBQdbdmxdSBzbDHNDkdJ5y0TCr1vxnxcQEFcdebKjasLoc2MKZAoGAY/qJ\nXdNNd06tbu8cp/vy6NzUpMd77V5L1U5UWmcRsURc2eUXKnUkBfVEft8E9Mrailds\n7abJn5/F2aPPRNkiCWS14EHq6rNz3DzKycV+70/RyLQ9YnoWt5eNp66hi3gwbAIe\ncmQFGhJppSI7ZeVr4iYf7O2jL9hdR4WMWm5l6RsCgYEAhCuuVuPVKRHwkwHZYWAH\nh0zz1SGZf5FqkYZbTe7lLGQ7UlneEwAFgub5BWFShfKnv1tHfzcJwMjv9G0GRMpM\n0YXuu8Wclx24e6qmaI61cQJjbWdasDondsALkkwnHHSqxHXMSPiQoyvIdM6mc3bD\njvcipFUAkHs5Oo0VgDWVsWM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pokemon-pwa@pokemon-pwa.iam.gserviceaccount.com",
+  "client_id": "114419743183248768558",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pokemon-pwa%40pokemon-pwa.iam.gserviceaccount.com"
+}
